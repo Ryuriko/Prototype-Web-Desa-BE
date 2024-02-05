@@ -1,0 +1,41 @@
+<div class="row m-0 mt-4 px-3">
+    <div class="col-md-6">
+        <h3>Form pelayanan KTP</h3>
+        <hr class="mb-4">
+        <form method="post" action="/pelayanan/ktp">
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="nama" name="nama" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="nik" class="form-label">NIK</label>
+                <input type="text" class="form-control" id="nik" name="nik" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="kp" class="form-label">Kampung</label>
+                <select id="kp" class="form-select" name="kp">
+                    <option value="kp1">Kampung 1</option>
+                    <option value="kp2">Kampung 2</option>
+                    <option value="kp3">Kampung 3</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="kk" class="form-label">Kartu Keluarga</label>
+                <input type="file" class="form-control" id="kk" name="kk">
+            </div>
+
+            <div class="mb-3">
+                <label for="perihal" class="form-label">Perihal</label>
+                <select id="perihal" class="form-select" name="perihal">
+                    <option value="pembuatan">Pembuatan</option>
+                    <option value="perubahan">Perubahan</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Kirim</button>
+        </form>
+    </div>
+</div>

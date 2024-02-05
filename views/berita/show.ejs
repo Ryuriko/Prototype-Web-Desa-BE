@@ -1,0 +1,31 @@
+<div class="row m-0 mt-3">
+    <div class="col ps-4 ps-md-5">
+        <img class="img-thumbnail" width="100%" src="<%= data.picture %>" alt="<%= data.picture %>">
+        <div class="row m-0">
+            <div class="col p-0">
+                <p class="h3 fw-bold my-3"><%= data.title %></p>
+                <p class="small"><%= data.date.toLocaleString() %></p>
+                <p><%= data.body %></p>
+                <a href="/berita" class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+
+    <% i = 0 %>
+
+    <div class="col-3 col-md-2 ms-md-3 p-0">
+        <% datas.forEach(item => { %>
+            <% if (i < 3 && item.title !== data.title) { i++ %>
+                <a class="row m-0 mb-2 m-0 p-0 nav-link" href="/berita/<%= item.title %>">
+                    <div class="col-12 p-0">
+                        <img class="img-thumbnail" width="100%" src="<%= item.picture %>" alt="<%= item.title %>">
+                    </div>
+                    <div class="col-12 p-0 px-2 m-0">
+                        <p class="fw-bold m-0"><%= item.title %></p>
+                        <p class="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </a>
+                <% } %>
+        <% }) %>
+    </div>
+</div>
