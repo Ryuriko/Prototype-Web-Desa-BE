@@ -1,6 +1,19 @@
 <div class="row m-0 justify-content-center vh-100 mb-5">
-    <!-- <div class="col-12 mb-3 mb-md-5">
-    </div> -->
+    
+    <!-- alert -->
+    <% if (success.length !== 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><%= success %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+    <% if (failed.length !== 0) { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong><%= failed %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+
     <div class="col-10">
         <p class="h1 text-center my-5">Desa Carita</p>
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">

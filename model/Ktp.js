@@ -3,23 +3,23 @@ const mongoose = require('mongoose')
 const Ktp = mongoose.model('Ktp', {
     nama: {
         type: String,
-        required: true,
+        required: false,
     },
     nik: {
         type: String,
-        required: true,    
+        required: false,    
     },
     kp: {
         type: String,
-        required: true,    
+        required: false,    
     },
     kk: {
         type: String,
-        required: true,    
+        required: false,    
     },
     perihal: {
         type: String,
-        required: true,    
+        required: false,    
     },
 })
 

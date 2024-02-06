@@ -1,0 +1,53 @@
+<div class="container">
+    <h1>Data Pengajuan Pelayanan KTP</h1>
+    <hr class="mb-4">
+
+    <!-- alert -->
+    <% if (success.length !== 0) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong><%= success %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+    <% if (failed.length !== 0) { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong><%= failed %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-striped text-center">
+            <thead class="table-primary">
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nama</th>
+                <th scope="col">NIK</th>
+                <th scope="col">Kampung</th>
+                <th scope="col">Kartu Keluarga</th>
+                <th scope="col">Perihal</th>
+                <th scope="col">Aksi</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% ktps.forEach((ktp, i) => { i++ %>
+                    <tr>
+                        <th><%= i %></th>
+                        <td class="text-capitalized"><%= ktp.nama %></td>
+                        <td><%= ktp.nik %></td>
+                        <td><%= ktp.kp %></td>
+                        <td><%= ktp.kk %></td>
+                        <td><%= ktp.perihal %></td>
+                        <td>
+                            <a class="btn btn-primary badge" href="/pelayanan/ktp/<%= ktp._id %>">ubah</a>
+                            <form class="d-inline" action="/pelayanan/ktp/<%= ktp._id %>?_method=DELETE" method="post">
+                                <input type="hidden" name="_id" value="<%= ktp._id %>">
+                                <button type="submit" class="btn btn-danger badge" onclick="return confirm('Are you sure?')">hapus</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>

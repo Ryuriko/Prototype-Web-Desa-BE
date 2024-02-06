@@ -2,15 +2,27 @@
     <div class="col-md-6">
         <h3>Form pelayanan KTP</h3>
         <hr class="mb-4">
-        <form method="post" action="/pelayanan/ktp">
+        <% if (typeof errors != 'undefined') { %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <ul>
+                    <% errors.forEach(error => { %>
+                       <li>
+                           <strong><%= error.msg %></strong>
+                           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                       </li> 
+                    <% }) %>
+                </ul>
+            </div>
+        <% } %>
+        <form method="post" action="/pelayanan/ktp" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="form-control" id="nama" name="nama" required>
+                <input type="text" class="form-control" id="nama" name="nama" value="<%= data.nama || '' %>">
             </div>
 
             <div class="mb-3">
                 <label for="nik" class="form-label">NIK</label>
-                <input type="text" class="form-control" id="nik" name="nik" required>
+                <input type="text" class="form-control" id="nik" name="nik" value="<%= data.nik || '' %>">
             </div>
             
             <div class="mb-3">

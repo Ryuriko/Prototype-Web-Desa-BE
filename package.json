@@ -2,7 +2,7 @@
   "name": "protoype-web-desa",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,7 +17,10 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.18.0",
     "express-validator": "^7.0.1",
+    "formidable": "^3.5.1",
+    "method-override": "^3.0.0",
     "mongodb": "^6.3.0",
-    "mongoose": "^8.1.1"
+    "mongoose": "^8.1.1",
+    "multer": "^1.4.5-lts.1"
   }
 }

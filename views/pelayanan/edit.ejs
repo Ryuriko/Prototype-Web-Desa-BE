@@ -1,0 +1,66 @@
+<div class="row m-0 mt-4 px-3">
+    <div class="col-md-6">
+        <h3>Form pelayanan KTP</h3>
+        <hr class="mb-4">
+        <% if (typeof errors != 'undefined') { %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <ul>
+                    <% errors.forEach(error => { %>
+                       <li>
+                           <strong><%= error.msg %></strong>
+                           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                       </li> 
+                    <% }) %>
+                </ul>
+            </div>
+        <% } %>
+        <form method="post" action="/pelayanan/ktp?_method=PUT" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="nama" name="nama" value="<%= data.nama %>">
+            </div>
+
+            <div class="mb-3">
+                <label for="nik" class="form-label">NIK</label>
+                <input type="text" class="form-control" id="nik" name="nik" value="<%= data.nik %>">
+            </div>
+            
+            <div class="mb-3">
+                <label for="kp" class="form-label">Kampung</label>
+                <select id="kp" class="form-select" name="kp">
+                    <option value="<%= data.kp %>">
+                        <% if (data.kp === 'kp1') { %>
+                            <%= 'Kampung 1' %>
+                        <% } else if (data.kp === 'kp2') { %>
+                            <%= 'Kampung 2' %>
+                        <% } else if (data.kp === 'kp3') { %>
+                            <%= 'Kampung 3' %>
+                        <% } %>
+                    </option>
+                    <option value="kp1">Kampung 1</option>
+                    <option value="kp2">Kampung 2</option>
+                    <option value="kp3">Kampung 3</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="kk" class="form-label">Kartu Keluarga</label>
+                <input type="file" class="form-control" id="kk" name="kk" value="<%= data.kk %>">
+            </div>
+
+            <div class="mb-3">
+                <label for="perihal" class="form-label">Perihal</label>
+                <select id="perihal" class="form-select" name="perihal">
+                    <option class="text-capitalize" value="<%= data.perihal%>"><%= data.perihal %></option>
+                    <option value="pembuatan">Pembuatan</option>
+                    <option value="perubahan">Perubahan</option>
+                </select>
+            </div>
+
+            <input type="hidden" name="oldNik" value="<%= data.oldNik || data.nik %>">
+            <input type="hidden" name="_id" value="<%= data._id %>">
+            
+            <button type="submit" class="btn btn-primary">Kirim</button>
+        </form>
+    </div>
+</div>
